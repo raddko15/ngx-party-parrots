@@ -7,7 +7,7 @@ const defaultModeConfig = {
     max: 5
   },
   parrotsAmount: 30,
-  skiingMode: true,
+  skiingMode: 'yes',
   slalomLength: {
     min: 15,
     max: 30
@@ -26,7 +26,7 @@ export const config = {
           max: 5
         },
         parrotsAmount: 50,
-        skiingMode: true,
+        skiingMode: 'yes',
         slalomLength: {
           min: 2,
           max: 30
@@ -35,10 +35,10 @@ export const config = {
       snowing: {
         ...defaultModeConfig,
         parrotsAmount: 50,
-        skiingMode: false,
+        skiingMode: 'no',
         speed: {
           min: 1,
-          max: 15
+          max: 5
         },
         parrotsData: parrotsData.filter(parrot => parrot.name === 'rotating'),
       },

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { config } from '../../config';
 import { ParrotModel } from '../../parrots/parrot.model';
 
@@ -13,14 +13,14 @@ enum SlalomDirection {
   templateUrl: './ngx-party-parrots.component.html',
   styleUrls: ['./ngx-party-parrots.component.css']
 })
-export class NgxPartyParrotsComponent implements OnInit {
+export class NgxPartyParrotsComponent implements OnInit, OnDestroy {
 
   @ViewChild('canvas') canvas;
   @Input() parrotsAmount: number;
   @Input() opacity: number;
   @Input() parrotsData: ParrotModel[];
   @Input() speed: { min: number, max: number };
-  @Input() skiingMode: boolean;
+  @Input() skiingMode: string;
   @Input() slalomLength: { min: number, max: number };
 
   @Input('mode') set mode(mode: string) {
@@ -38,7 +38,21 @@ export class NgxPartyParrotsComponent implements OnInit {
   private windowAnimationFrame: number;
   parrotsSprites = [];
 
-  constructor() { }
+  constructor(public ngZone: NgZone) {
+    this.ngZone.runOutsideAngular(() => {
+      const loop = () => {
+        this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        this.parrotsSprites.forEach((parrot) => {
+          parrot.update();
+          parrot.render();
+        });
+        this.windowAnimationFrame = requestAnimationFrame(loop);
+
+      };
+
+      this.windowAnimationFrame = requestAnimationFrame(loop);
+    });
+  }
 
   ngOnInit() {
     this.prepareCanvas();
@@ -105,12 +119,12 @@ export class NgxPartyParrotsComponent implements OnInit {
       if (sprite.positionY < this.canvasHeight) {
         sprite.positionY = sprite.positionY + sprite.speed;
 
-        if (this.skiingMode) {
+        if (this.skiingMode === 'yes') {
           this.setSlalomDirection(sprite);
         }
+
       } else {
         randomParrot = this.randomNumberFromMinToMax(0, this.parrotsData.length);
-        // sprite = this.createSprite();
 
         sprite = {
           ...sprite,
@@ -147,9 +161,11 @@ export class NgxPartyParrotsComponent implements OnInit {
     };
     return sprite;
   }
+
   randomNumberFromMinToMax(min: number, max: number): number {
     return Math.floor(Math.random() * max) + min;
   }
+
   getScalingFactorForWidth(width): number {
     if (width < 1280) {
       return 1;
@@ -188,6 +204,19 @@ export class NgxPartyParrotsComponent implements OnInit {
       }
       sprite.slalomMovementLength = this.randomNumberFromMinToMax(this.slalomLength.min, this.slalomLength.max);
     }
+  }
+  @HostListener('window:resize')
+  onResize(): void {
+    this.canvasWidth = window.innerWidth;
+    this.canvasHeight = window.innerHeight;
+
+    // update canvas size (possibly window resized)
+    this.canvas.nativeElement.width = this.canvasWidth;
+    this.canvas.nativeElement.height = this.canvasHeight;
+  }
+
+  ngOnDestroy(): void {
+    cancelAnimationFrame(this.windowAnimationFrame);
   }
 
 }
