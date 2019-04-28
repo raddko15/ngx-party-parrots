@@ -1,9 +1,9 @@
 {
   "name": "ngx-party-parrots",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "This gonna be easter egg library",
   "keywords" :["Angular","Library", "Party", "Parrot"],
-  "license" : "SEE LICENSE IN LICENSE",
+  "license" : "MIT",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/raddko15/ngx-party-parrots"
