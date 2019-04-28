@@ -46,11 +46,29 @@ In your component.html use two party-parrots components
 ```
 
 Run your application - parrots are hidden.
-
-### Type "parrots"
+Type "parrots" - to display parrots and to hide them - yay you have the easter egg embedded in your app!
 
 ## Customization
-Global config: Use when you want to change default values globally.
+There are two ways of modifying components - by choosing mode or by sending custom props!
+
+Modes:
+```
+mode="default"
+mode="skiing"
+mode="snowing"
+mode="copsAndSpies"
+```
+Props:
+```
+@Input() parrotsAmount: number;
+@Input() opacity: number;
+@Input() parrotsData: ParrotModel[];
+@Input() speed: { min: number, max: number };
+@Input() skiingMode: string;
+@Input() slalomLength: { min: number, max: number };
+```
 
 ##
 Contributors:
+raddko15,
+proxeld
