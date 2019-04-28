@@ -17,5 +17,19 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-<ngx-party-parrots></ngx-party-parrots>
+<ngx-pp-code-detector (codeProvided)="onPPCodeProvided()"></ngx-pp-code-detector>
+<ngx-pp-party-parrots
+  *ngIf="isPartyParrotRainVisible"
+></ngx-pp-party-parrots>
+
+
+<!--<app-code-detector (codeProvided)="onPPCodeProvided()"></app-code-detector>-->
+<!--<app-party-parrot-->
+<!--  *ngIf="isPartyParrotRainVisible"-->
+<!--  mode="default"-->
+<!--  [opacity]="0.7"-->
+<!--  parrotsAmount="30"-->
+<!--  [skiingMode]="true"-->
+<!--&gt;-->
+<!--</app-party-parrot>-->
 

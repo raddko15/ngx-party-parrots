@@ -3,5 +3,4 @@
  */
 
 export * from './lib/ngx-party-parrots.service';
-export * from './lib/ngx-party-parrots.component';
 export * from './lib/ngx-party-parrots.module';
