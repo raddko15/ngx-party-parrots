@@ -1,6 +1,6 @@
 {
   "name": "ngx-party-parrots",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This gonna be easter egg library",
   "keywords" :["Angular","Library", "Party", "Parrot"],
   "license" : "MIT",
