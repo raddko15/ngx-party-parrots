@@ -64,7 +64,7 @@ Props:
 @Input() opacity: number;
 @Input() parrotsData: ParrotModel[];
 @Input() speed: { min: number, max: number };
-@Input() skiingMode: string;
+@Input() skiingMode: string; // yes/no
 @Input() slalomLength: { min: number, max: number };
 ```
 
