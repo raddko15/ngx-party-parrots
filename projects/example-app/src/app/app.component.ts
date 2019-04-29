@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,11 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'example-app';
+  isPartyParrotRainVisible = false;
+  btnText = 'START';
+
   appForm = new FormGroup({
     mode: new FormControl('default')
   });
@@ -18,13 +21,14 @@ export class AppComponent implements OnInit{
 
   onChanges(): void {
     this.appForm.get('mode').valueChanges.subscribe(val => {
+      this.onPPCodeProvided();
       console.log(val);
     });
   }
 
-  isPartyParrotRainVisible = false;
 
   onPPCodeProvided() {
+    this.btnText === 'START' ? this.btnText = 'STOP' : this.btnText = 'START';
     this.isPartyParrotRainVisible = !this.isPartyParrotRainVisible;
   }
 }

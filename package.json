@@ -11,7 +11,6 @@
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/ngx-party-parrots && npm pack",
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
-    "publish": "npm publish ./dist/ngx-party-parrots/*.tgz",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -1,12 +1,12 @@
 import { parrotsData } from './parrots/parrots';
 
 const defaultModeConfig = {
-  parrotsData,
+  parrotsData: parrotsData.filter(parrot => parrot.name !== 'skiing'),
   speed: {
     min: 1,
     max: 5
   },
-  parrotsAmount: 30,
+  parrotsAmount: 100,
   skiingMode: 'yes',
   slalomLength: {
     min: 15,
@@ -18,6 +18,20 @@ const defaultModeConfig = {
 export const config = {
     modes: {
       default: defaultModeConfig,
+      one: {
+        ...defaultModeConfig,
+        parrotsAmount: 1
+      },
+      love: {
+        ...defaultModeConfig,
+        parrotsData: parrotsData.filter(parrot => parrot.name === 'parrot'),
+        parrotsAmount: 1000,
+        skiingMode: 'no',
+        speed: {
+          min: 3,
+          max: 10
+        },
+      },
       skiing: {
         ...defaultModeConfig,
         parrotsData: parrotsData.filter(parrot => parrot.name === 'skiing'),
@@ -25,7 +39,7 @@ export const config = {
           min: 1,
           max: 5
         },
-        parrotsAmount: 50,
+        parrotsAmount: 70,
         skiingMode: 'yes',
         slalomLength: {
           min: 2,
@@ -34,7 +48,7 @@ export const config = {
       },
       snowing: {
         ...defaultModeConfig,
-        parrotsAmount: 50,
+        parrotsAmount: 150,
         skiingMode: 'no',
         speed: {
           min: 1,
@@ -49,7 +63,7 @@ export const config = {
           min: 4,
           max: 15
         },
-        parrotsData: parrotsData.filter(parrot => parrot.name === 'cop' || parrot.name === 'spy' ),
+        parrotsData: parrotsData.filter(parrot => parrot.name === 'cop' || parrot.name === 'spy'),
       }
     }
   }

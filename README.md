@@ -1,17 +1,17 @@
 # ngx-party-parrots ![Image](https://emojis.slackmojis.com/emojis/images/1471119457/987/parrot.gif?1471119457)
 
 
-## Description: ![Image](https://emojis.slackmojis.com/emojis/images/1495224269/2316/twins_parrot.gif?1495224269)
+## Description ![Image](https://emojis.slackmojis.com/emojis/images/1495224269/2316/twins_parrot.gif?1495224269)
 Angular 7 easter egg components!
 
-## Demo: ![Image](https://emojis.slackmojis.com/emojis/images/1504032127/2844/parrot_ok.png?1504032127)
+## Demo ![Image](https://emojis.slackmojis.com/emojis/images/1504032127/2844/parrot_ok.png?1504032127)
 Coming soon!
 
-## Installation: ![Image](https://emojis.slackmojis.com/emojis/images/1495224265/2306/parrot_mustache.gif?1495224265)
+## Installation ![Image](https://emojis.slackmojis.com/emojis/images/1495224265/2306/parrot_mustache.gif?1495224265)
 ```
   npm i ngx-party-parrots
 ```
-## Basic usage: ![Image](https://emojis.slackmojis.com/emojis/images/1495224268/2312/ski_parrot.gif?1495224268)
+## Basic usage ![Image](https://emojis.slackmojis.com/emojis/images/1495224268/2312/ski_parrot.gif?1495224268)
 The usage consists in three steps.
 
 * Install the library - covered in "Installation" paragraph
@@ -30,7 +30,7 @@ The simpliest usage:
 ></ngx-pp-party-parrots>
 ```
 
-## Recommended usage: ![Image](https://emojis.slackmojis.com/emojis/images/1495224259/2300/love_parrot.gif?1495224259)
+## Recommended usage ![Image](https://emojis.slackmojis.com/emojis/images/1495224259/2300/love_parrot.gif?1495224259)
 In your component.ts create the variable and function
 
 ```
@@ -53,25 +53,28 @@ Type "parrots" - to display parrots and to hide them - yay you have the easter e
 
 ## Customization ![Image](https://emojis.slackmojis.com/emojis/images/1495224268/2311/ship_it_parrot.gif?1495224268)
 There are two ways of modifying components - by choosing mode or by sending custom props!
+You can also mix both ways :))
 
 Modes:
 ```
 mode="default"
-mode="skiing"
+mdoe="one"
+mode="love"
+mode="skiing" // recommended only for bright/white backgrounds
 mode="snowing"
 mode="copsAndSpies"
 ```
 Props:
 ```
 @Input() parrotsAmount: number;
-@Input() opacity: number;
+@Input() opacity: number; // 0.1 - 1
 @Input() parrotsData: ParrotModel[];
 @Input() speed: { min: number, max: number };
 @Input() skiingMode: string; // yes/no
 @Input() slalomLength: { min: number, max: number };
 ```
 
-## Contributors: ![Image](https://emojis.slackmojis.com/emojis/images/1495224256/2290/confused_parrot.gif?1495224256)
+## Contributors ![Image](https://emojis.slackmojis.com/emojis/images/1495224256/2290/confused_parrot.gif?1495224256)
 raddko15,
 proxeld,
 bulbulator
