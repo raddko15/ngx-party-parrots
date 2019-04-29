@@ -5,7 +5,7 @@
 Angular 7 easter egg components!
 
 ## Demo ![Image](https://emojis.slackmojis.com/emojis/images/1504032127/2844/parrot_ok.png?1504032127)
-Coming soon!
+https://raddko15.github.io/ngx-party-parrots/
 
 ## Installation ![Image](https://emojis.slackmojis.com/emojis/images/1495224265/2306/parrot_mustache.gif?1495224265)
 ```
